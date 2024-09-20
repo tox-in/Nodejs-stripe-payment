@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Subscription with Node.js</title>
+    <style>
+        #premiumPlans {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Plans</h1>
+
+    <button id="showBasic">Basic Plans</button>
+    <button id="showPremium">Premium Plans</button>
+
+    <div id="basicPlans" class="plans-container">
+        <div class="plan">
+            <h3>Monthly</h3>
+            <p><b>$20/month</b></p>
+            <p>This is the Monthly Basic plan</p>
+            <a href="/subscribe?plan=monthlyBasic">Subscribe</a>
+        </div>
+
+        <div class="plan">
+            <h3>OneTime</h3>
+            <p><b>$60</b></p>
+            <p>This is the Onetime Basic plan</p>
+            <a href="/subscribe?plan=onetimeBasic">Subscribe</a>
+        </div>
+    </div>
+
+    <div id="premiumPlans" class="plans-container">
+        <div class="plan">
+            <h3>Monthly</h3>
+            <p><b>$99.99/month</b></p>
+            <p>This is the Monthly Premium plan</p>
+            <a href="/subscribe?plan=monthlyPremium">Subscribe</a>
+        </div>
+
+        <div class="plan">
+            <h3>OneTime</h3>
+            <p><b>$300</b></p>
+            <p>This is the Onetime Premium plan</p>
+            <a href="/subscribe?plan=onetimePremium">Subscribe</a>
+        </div>
+    </div>
+
+    <script>
+        // Get the buttons and plan sections
+        const showBasicBtn = document.getElementById('showBasic');
+        const showPremiumBtn = document.getElementById('showPremium');
+        const basicPlans = document.getElementById('basicPlans');
+        const premiumPlans = document.getElementById('premiumPlans');
+
+        // Show Basic Plans
+        showBasicBtn.addEventListener('click', () => {
+            basicPlans.style.display = 'block';     // Show Basic plans
+            premiumPlans.style.display = 'none';    // Hide Premium plans
+        });
+
+        // Show Premium Plans
+        showPremiumBtn.addEventListener('click', () => {
+            premiumPlans.style.display = 'block';   // Show Premium plans
+            basicPlans.style.display = 'none';      // Hide Basic plans
+        });
+    </script>
+</body>
+</html>
